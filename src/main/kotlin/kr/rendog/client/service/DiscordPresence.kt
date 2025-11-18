@@ -23,7 +23,12 @@ object DiscordPresence {
             setState("RendogClient-Epsilon")
             setLargeImage("rendog_icon", "RendogClient")
             setStart(Instant.now().epochSecond)
-            addButton("Discord", "https://discord.gg/aKhYsfm")
+            try {
+                val method = javaClass.getMethod("addButton", String::class.java, String::class.java)
+                method.invoke(this, "Discord", "https://discord.gg/aKhYsfm")
+            } catch (ignored: Throwable) {
+                // Method not present or invocation failed — silently ignore to remain compatible
+            }
         }
 
         DiscordIPC.setActivity(presence!!)
