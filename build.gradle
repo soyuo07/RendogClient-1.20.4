@@ -38,7 +38,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabricApiVersion}"
     modImplementation("com.terraformersmc:modmenu:${project.modmenuVersion}")
 
-    implementation("com.github.soyuo07:discord-ipc:v1.2.9")
+    implementation("com.github.soyuo07:discord-ipc:v${project.discordIpcVersion}")
 
     include(modImplementation("com.github.MellDa1024.MidnightLib:midnightlib-fabric:${project.midnightlibVersion}"))
     include(modImplementation(fabricApi.module("fabric-resource-loader-v0", project.fabricApiVersion)))

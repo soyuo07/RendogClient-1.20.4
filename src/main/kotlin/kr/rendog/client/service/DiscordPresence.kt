@@ -18,17 +18,16 @@ object DiscordPresence {
             return
         }
 
+        val buttons = listOf(
+            listOf("Discord", "https://discord.gg/aKhYsfm"),
+        )
+
         presence = RichPresence().apply {
             setDetails("Playing Rendog.kr")
             setState("RendogClient-Epsilon")
             setLargeImage("rendog_icon", "RendogClient")
             setStart(Instant.now().epochSecond)
-            try {
-                val method = javaClass.getMethod("addButton", String::class.java, String::class.java)
-                method.invoke(this, "Discord", "https://discord.gg/aKhYsfm")
-            } catch (ignored: Throwable) {
-                // Method not present or invocation failed — silently ignore to remain compatible
-            }
+            setButtons(buttons)
         }
 
         DiscordIPC.setActivity(presence!!)
