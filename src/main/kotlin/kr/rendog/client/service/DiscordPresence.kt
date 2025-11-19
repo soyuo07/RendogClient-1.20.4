@@ -18,16 +18,12 @@ object DiscordPresence {
             return
         }
 
-        val buttons = listOf(
-            listOf("Discord", "https://discord.gg/aKhYsfm"),
-        )
-
         presence = RichPresence().apply {
             setDetails("Playing Rendog.kr")
             setState("RendogClient-Epsilon")
             setLargeImage("rendog_icon", "RendogClient")
             setStart(Instant.now().epochSecond)
-            setButtons(buttons)
+            addButton("Discord", "https://discord.gg/aKhYsfm")
         }
 
         DiscordIPC.setActivity(presence!!)
