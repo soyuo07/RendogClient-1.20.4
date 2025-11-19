@@ -19,11 +19,10 @@ object DiscordPresence {
         }
 
         presence = RichPresence().apply {
-            setDetails("Playing Rendog.kr")
-            setState("RendogClient-Epsilon")
+            setDetails("RendogClient-1.20.4")
+            setState("Playing Rendog.kr")
             setLargeImage("rendog_icon", "RendogClient")
             setStart(Instant.now().epochSecond)
-            addButton("Discord", "https://discord.gg/aKhYsfm")
         }
 
         DiscordIPC.setActivity(presence!!)

@@ -24,6 +24,10 @@ repositories {
         name = "Nucleoid"
     }
     maven { url = "https://api.modrinth.com/maven" }
+    maven {
+        name = "meteor-maven"
+        url = "https://maven.meteordev.org"
+    }x
 }
 
 loom {
@@ -38,7 +42,8 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabricApiVersion}"
     modImplementation("com.terraformersmc:modmenu:${project.modmenuVersion}")
 
-    implementation("com.github.soyuo07:discord-ipc:v${project.discordIpcVersion}")
+    implementation("meteordevelopment:discord-ipc:${project.discordIpcVersion}")
+    implementation("com.google.code.gson:gson:2.8.9")
 
     include(modImplementation("com.github.MellDa1024.MidnightLib:midnightlib-fabric:${project.midnightlibVersion}"))
     include(modImplementation(fabricApi.module("fabric-resource-loader-v0", project.fabricApiVersion)))
